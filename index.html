@@ -32,7 +32,8 @@ body{
 }
 main{flex:1;min-height:0;overflow:auto;display:flex;align-items:center;justify-content:center;padding:clamp(12px,3vh,40px) var(--gr) clamp(8px,2vh,24px) var(--gl)}
 .col{width:100%;max-width:50rem;display:grid;gap:clamp(.55rem,1.8vh,1.4rem)}
-.logo{width:min(250px,56vw,30vh);height:auto;display:block}
+/* the artwork has 11.3% of clear space before the a; pull it left so the a sits on the column's edge */
+.logo{--logo-w:min(250px,56vw,30vh);width:var(--logo-w);margin-left:calc(var(--logo-w) * -0.1133);height:auto;display:block}
 .eyebrow{font-family:var(--display);font-weight:500;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--sun)}
 h1{font-family:var(--display);font-weight:400;font-size:clamp(1.55rem,min(5vw,5vh),3.1rem);line-height:1.06;letter-spacing:-.015em;color:var(--pale-peri);margin:0;text-wrap:balance;max-width:16ch}
 .copy{display:grid;gap:clamp(.4rem,1.1vh,.9rem);max-width:62ch}
@@ -55,7 +56,7 @@ footer{flex:none;padding:0 var(--gr) clamp(10px,2.4vh,28px) var(--gl);font-size:
 :focus-visible{outline:2px solid var(--starlight);outline-offset:3px}
 @media (max-height:720px){
   body{font-size:clamp(.86rem,1.7vh,1rem)}
-  .logo{width:min(210px,48vw,21vh)}
+  .logo{--logo-w:min(210px,48vw,21vh)}
   .col{gap:clamp(.4rem,1.3vh,1rem)}
   form{margin-top:1.2vh;padding:.7rem .9rem}
   .note{min-height:0}
