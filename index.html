@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>at Blue Sky</title>
+<meta name="description" content="at Blue Sky · Coaching, consulting and facilitation on the human side of change. Coming soon.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23F3D55B' d='M32 2c2 16 8 26 30 30-22 4-28 14-30 30-2-16-8-26-30-30 22-4 28-14 30-30z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;1,400&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Placeholder: one quiet column on a sky that goes from mid blue to midnight, light entering from the top right. */
+:root{
+  color-scheme:dark;
+  --blue-hour:#1240D8; --royal:#0E36B2; --deep:#0A2C8A; --midnight:#040F3F;
+  --starlight:#F3E7A8; --sun:#F3D55B; --peri:#C2C3FF; --pale-peri:#DCDDFF;
+  --white:#FBF6E6; --slate:#D3D6EE; --ink:#0A1838; --line:rgba(194,195,255,.25);
+  --display:"Jost",system-ui,"Segoe UI",sans-serif;
+  --body:"Source Sans 3","Source Sans Pro",system-ui,sans-serif;
+  --gl:max(20px,env(safe-area-inset-left,0px)); --gr:max(20px,env(safe-area-inset-right,0px));
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{
+  background:
+    radial-gradient(70% 60% at 94% 4%,rgba(226,238,255,.38) 0%,rgba(191,220,255,.16) 24%,rgba(120,170,255,.07) 46%,rgba(18,64,216,0) 68%),
+    linear-gradient(168deg,#1240D8 0%,#0E36B2 32%,#0A2C8A 62%,#040F3F 100%);
+  background-attachment:fixed;
+  color:var(--white);font-family:var(--body);font-size:1.1rem;line-height:1.6;-webkit-font-smoothing:antialiased;
+  display:flex;flex-direction:column;min-height:100vh;min-height:100svh;
+}
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:clamp(40px,8vh,96px) var(--gr) clamp(32px,6vh,64px) var(--gl)}
+.col{width:100%;max-width:42rem;display:grid;gap:1.6rem}
+.logo{width:min(260px,64vw);height:auto;display:block}
+.eyebrow{font-family:var(--display);font-weight:500;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--sun)}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.06;letter-spacing:-.015em;color:var(--pale-peri);margin:0;text-wrap:balance;max-width:16ch}
+.copy{display:grid;gap:1rem;max-width:56ch}
+.copy p{margin:0;color:var(--white)}
+.rule{height:1px;background:linear-gradient(90deg,var(--sun),var(--peri) 70%,transparent);opacity:.7}
+.pillars{font-family:var(--display);font-weight:500;font-size:1.05rem;letter-spacing:.06em;color:var(--pale-peri);margin:0}
+.strap{font-family:var(--display);font-weight:500;font-size:.82rem;letter-spacing:.24em;text-transform:uppercase;color:var(--slate);margin:.2rem 0 0}
+.email{font-family:var(--display);font-weight:500;color:var(--white);text-decoration:none;border-bottom:1px solid rgba(243,213,91,.6);padding-bottom:.1rem;width:max-content}
+.email:hover{border-bottom-color:var(--sun)}
+form{display:grid;gap:.7rem;max-width:34rem;margin-top:.4rem}
+label{font-family:var(--display);font-weight:500;font-size:.95rem;color:var(--pale-peri)}
+.row{display:flex;gap:.7rem;flex-wrap:wrap}
+input{flex:1 1 14rem;min-width:0;font:inherit;font-size:1rem;color:var(--white);background:rgba(4,15,63,.35);border:1px solid var(--line);border-radius:999px;padding:.8rem 1.1rem;transition:border-color .25s}
+input::placeholder{color:rgba(211,214,238,.5)}
+input:focus{outline:0;border-color:var(--starlight)}
+button{font-family:var(--display);font-weight:500;font-size:1rem;padding:.8rem 1.4rem;border-radius:999px;border:0;cursor:pointer;background:linear-gradient(135deg,#F3E7A8,#F3D55B);color:var(--ink);transition:transform .25s,box-shadow .25s}
+button:hover{transform:translateY(-1px);box-shadow:0 0 24px rgba(243,213,91,.3)}
+.note{font-size:.92rem;color:var(--slate);margin:0;min-height:1.4em}
+footer{padding:0 var(--gr) clamp(24px,4vh,40px) var(--gl);font-size:.85rem;color:var(--slate);opacity:.75;text-align:center}
+:focus-visible{outline:2px solid var(--starlight);outline-offset:3px}
+</style>
+</head>
+<body>
+<main>
+  <div class="col">
+    <img class="logo" src="assets/logo-horizontal-periwinkle.png" alt="at Blue Sky" width="1200" height="383">
+    <p class="eyebrow">Coming soon</p>
+    <h1>Empowering humans at the core of transformation</h1>
+    <div class="copy">
+      <p>Behind every change are people finding their way. I help leaders, teams and organizations navigate it with clearer communication, stronger trust and a shared way forward.</p>
+      <p>Through coaching, consulting and facilitation, I work alongside you and the people who will shape the change.</p>
+    </div>
+    <div class="rule" aria-hidden="true"></div>
+    <div>
+      <p class="pillars">Coaching · Consulting · Facilitation</p>
+      <p class="strap">Culture. Teams. Trust.</p>
+    </div>
+    <a class="email" href="mailto:jill@atbluesky.com">jill@atbluesky.com</a>
+    <form id="wait" novalidate data-endpoint="">
+      <label for="w-email">Join the waiting list</label>
+      <div class="row">
+        <input id="w-email" name="email" type="email" autocomplete="email" placeholder="Your email" required>
+        <button type="submit">Join</button>
+      </div>
+      <p class="note" id="w-note" aria-live="polite"></p>
+    </form>
+  </div>
+</main>
+<footer>© 2026 At Blue Sky. All rights reserved.</footer>
+<script>
+(function(){
+  var f=document.getElementById('wait'),n=document.getElementById('w-note'),e=document.getElementById('w-email');
+  f.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e.value)){e.focus();n.textContent='Please enter a valid email address.';return;}
+    var url=f.getAttribute('data-endpoint');
+    if(!url){n.textContent='The waiting list opens with the site. Until then, write to jill@atbluesky.com.';return;}
+    n.textContent='Sending…';
+    fetch(url,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({email:e.value})})
+      .then(function(r){if(!r.ok)throw new Error(r.status);n.textContent='Thank you. You’re on the list.';e.value='';})
+      .catch(function(){n.textContent='That did not go through. Please try again, or write to jill@atbluesky.com.';});
+  });
+  e.addEventListener('input',function(){n.textContent='';});
+})();
+</script>
+</body>
+</html>
