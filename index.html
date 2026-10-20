@@ -30,22 +30,22 @@ body{
   color:var(--white);font-family:var(--body);font-size:clamp(.92rem,1.85vh,1.1rem);line-height:1.5;-webkit-font-smoothing:antialiased;
   display:flex;flex-direction:column;height:100vh;height:100svh;overflow:auto;
 }
-main{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:clamp(12px,3vh,40px) var(--gr) clamp(8px,2vh,24px) var(--gl)}
-.col{width:100%;max-width:42rem;display:grid;gap:clamp(.55rem,1.8vh,1.4rem)}
+main{flex:1;min-height:0;overflow:auto;display:flex;align-items:center;justify-content:center;padding:clamp(12px,3vh,40px) var(--gr) clamp(8px,2vh,24px) var(--gl)}
+.col{width:100%;max-width:50rem;display:grid;gap:clamp(.55rem,1.8vh,1.4rem)}
 .logo{width:min(250px,56vw,30vh);height:auto;display:block}
 .eyebrow{font-family:var(--display);font-weight:500;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--sun)}
 h1{font-family:var(--display);font-weight:400;font-size:clamp(1.55rem,min(5vw,5vh),3.1rem);line-height:1.06;letter-spacing:-.015em;color:var(--pale-peri);margin:0;text-wrap:balance;max-width:16ch}
-.copy{display:grid;gap:clamp(.4rem,1.1vh,.9rem);max-width:56ch}
+.copy{display:grid;gap:clamp(.4rem,1.1vh,.9rem);max-width:62ch}
 .copy p{margin:0;color:var(--white)}
 .rule{height:1px;background:linear-gradient(90deg,var(--sun),var(--peri) 70%,transparent);opacity:.7}
 .pillars{font-family:var(--display);font-weight:500;font-size:1.05rem;letter-spacing:.06em;color:var(--pale-peri);margin:0}
 .strap{font-family:var(--display);font-weight:500;font-size:.82rem;letter-spacing:.24em;text-transform:uppercase;color:var(--slate);margin:.2rem 0 0}
 .email{font-family:var(--display);font-weight:500;color:var(--white);text-decoration:none;border-bottom:1px solid rgba(243,213,91,.6);padding-bottom:.1rem;width:max-content}
 .email:hover{border-bottom-color:var(--sun)}
-form{display:grid;gap:clamp(.35rem,.8vh,.6rem);max-width:34rem}
+form{display:grid;gap:clamp(.35rem,.8vh,.6rem);max-width:36rem;margin-top:clamp(.5rem,2.2vh,1.6rem);padding:clamp(.8rem,1.8vh,1.3rem) clamp(.9rem,2vw,1.4rem);border:1px solid var(--line);border-radius:14px;background:rgba(4,15,63,.28)}
 label{font-family:var(--display);font-weight:500;font-size:.95rem;color:var(--pale-peri)}
-.row{display:flex;gap:.7rem;flex-wrap:wrap}
-input{flex:1 1 14rem;min-width:0;font:inherit;font-size:1rem;color:var(--white);background:rgba(4,15,63,.35);border:1px solid var(--line);border-radius:999px;padding:clamp(.55rem,1.1vh,.8rem) 1.1rem;transition:border-color .25s}
+.row{display:flex;gap:.6rem;flex-wrap:nowrap}
+input{flex:1 1 8rem;min-width:0;font:inherit;font-size:1rem;color:var(--white);background:rgba(4,15,63,.4);border:1px solid var(--line);border-radius:999px;padding:clamp(.55rem,1.1vh,.8rem) 1.1rem;transition:border-color .25s}
 input::placeholder{color:rgba(211,214,238,.5)}
 input:focus{outline:0;border-color:var(--starlight)}
 button{font-family:var(--display);font-weight:500;font-size:1rem;padding:clamp(.55rem,1.1vh,.8rem) 1.4rem;border-radius:999px;border:0;cursor:pointer;background:linear-gradient(135deg,#F3E7A8,#F3D55B);color:var(--ink);transition:transform .25s,box-shadow .25s}
@@ -53,6 +53,13 @@ button:hover{transform:translateY(-1px);box-shadow:0 0 24px rgba(243,213,91,.3)}
 .note{font-size:.88rem;color:var(--slate);margin:0;min-height:1.3em}
 footer{flex:none;padding:0 var(--gr) clamp(10px,2.4vh,28px) var(--gl);font-size:.82rem;color:var(--slate);opacity:.75;text-align:center}
 :focus-visible{outline:2px solid var(--starlight);outline-offset:3px}
+@media (max-height:720px){
+  body{font-size:clamp(.86rem,1.7vh,1rem)}
+  .logo{width:min(210px,48vw,21vh)}
+  .col{gap:clamp(.4rem,1.3vh,1rem)}
+  form{margin-top:1.2vh;padding:.7rem .9rem}
+  .note{min-height:0}
+}
 </style>
 </head>
 <body>
@@ -62,7 +69,7 @@ footer{flex:none;padding:0 var(--gr) clamp(10px,2.4vh,28px) var(--gl);font-size:
     <p class="eyebrow">Coming soon</p>
     <h1>Empowering humans at the core of transformation</h1>
     <div class="copy">
-      <p>Behind every change are people finding their way. I help leaders, teams and organizations navigate it with clearer communication, stronger trust and a shared way forward.</p>
+      <p>Behind every change are people finding their way.<br>I help leaders, teams and organizations navigate it with clearer communication, stronger trust and a shared way forward.</p>
       <p>Through coaching, consulting and facilitation, I work alongside you and the people who will shape the change.</p>
     </div>
     <div class="rule" aria-hidden="true"></div>
