@@ -21,37 +21,37 @@
   --gl:max(20px,env(safe-area-inset-left,0px)); --gr:max(20px,env(safe-area-inset-right,0px));
 }
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%}
+html,body{margin:0;height:100%}
 body{
   background:
     radial-gradient(70% 60% at 94% 4%,rgba(226,238,255,.38) 0%,rgba(191,220,255,.16) 24%,rgba(120,170,255,.07) 46%,rgba(18,64,216,0) 68%),
     linear-gradient(168deg,#1240D8 0%,#0E36B2 32%,#0A2C8A 62%,#040F3F 100%);
   background-attachment:fixed;
-  color:var(--white);font-family:var(--body);font-size:1.1rem;line-height:1.6;-webkit-font-smoothing:antialiased;
-  display:flex;flex-direction:column;min-height:100vh;min-height:100svh;
+  color:var(--white);font-family:var(--body);font-size:clamp(.92rem,1.85vh,1.1rem);line-height:1.5;-webkit-font-smoothing:antialiased;
+  display:flex;flex-direction:column;height:100vh;height:100svh;overflow:auto;
 }
-main{flex:1;display:flex;align-items:center;justify-content:center;padding:clamp(40px,8vh,96px) var(--gr) clamp(32px,6vh,64px) var(--gl)}
-.col{width:100%;max-width:42rem;display:grid;gap:1.6rem}
-.logo{width:min(260px,64vw);height:auto;display:block}
+main{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:clamp(12px,3vh,40px) var(--gr) clamp(8px,2vh,24px) var(--gl)}
+.col{width:100%;max-width:42rem;display:grid;gap:clamp(.55rem,1.8vh,1.4rem)}
+.logo{width:min(250px,56vw,30vh);height:auto;display:block}
 .eyebrow{font-family:var(--display);font-weight:500;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--sun)}
-h1{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.06;letter-spacing:-.015em;color:var(--pale-peri);margin:0;text-wrap:balance;max-width:16ch}
-.copy{display:grid;gap:1rem;max-width:56ch}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(1.55rem,min(5vw,5vh),3.1rem);line-height:1.06;letter-spacing:-.015em;color:var(--pale-peri);margin:0;text-wrap:balance;max-width:16ch}
+.copy{display:grid;gap:clamp(.4rem,1.1vh,.9rem);max-width:56ch}
 .copy p{margin:0;color:var(--white)}
 .rule{height:1px;background:linear-gradient(90deg,var(--sun),var(--peri) 70%,transparent);opacity:.7}
 .pillars{font-family:var(--display);font-weight:500;font-size:1.05rem;letter-spacing:.06em;color:var(--pale-peri);margin:0}
 .strap{font-family:var(--display);font-weight:500;font-size:.82rem;letter-spacing:.24em;text-transform:uppercase;color:var(--slate);margin:.2rem 0 0}
 .email{font-family:var(--display);font-weight:500;color:var(--white);text-decoration:none;border-bottom:1px solid rgba(243,213,91,.6);padding-bottom:.1rem;width:max-content}
 .email:hover{border-bottom-color:var(--sun)}
-form{display:grid;gap:.7rem;max-width:34rem;margin-top:.4rem}
+form{display:grid;gap:clamp(.35rem,.8vh,.6rem);max-width:34rem}
 label{font-family:var(--display);font-weight:500;font-size:.95rem;color:var(--pale-peri)}
 .row{display:flex;gap:.7rem;flex-wrap:wrap}
-input{flex:1 1 14rem;min-width:0;font:inherit;font-size:1rem;color:var(--white);background:rgba(4,15,63,.35);border:1px solid var(--line);border-radius:999px;padding:.8rem 1.1rem;transition:border-color .25s}
+input{flex:1 1 14rem;min-width:0;font:inherit;font-size:1rem;color:var(--white);background:rgba(4,15,63,.35);border:1px solid var(--line);border-radius:999px;padding:clamp(.55rem,1.1vh,.8rem) 1.1rem;transition:border-color .25s}
 input::placeholder{color:rgba(211,214,238,.5)}
 input:focus{outline:0;border-color:var(--starlight)}
-button{font-family:var(--display);font-weight:500;font-size:1rem;padding:.8rem 1.4rem;border-radius:999px;border:0;cursor:pointer;background:linear-gradient(135deg,#F3E7A8,#F3D55B);color:var(--ink);transition:transform .25s,box-shadow .25s}
+button{font-family:var(--display);font-weight:500;font-size:1rem;padding:clamp(.55rem,1.1vh,.8rem) 1.4rem;border-radius:999px;border:0;cursor:pointer;background:linear-gradient(135deg,#F3E7A8,#F3D55B);color:var(--ink);transition:transform .25s,box-shadow .25s}
 button:hover{transform:translateY(-1px);box-shadow:0 0 24px rgba(243,213,91,.3)}
-.note{font-size:.92rem;color:var(--slate);margin:0;min-height:1.4em}
-footer{padding:0 var(--gr) clamp(24px,4vh,40px) var(--gl);font-size:.85rem;color:var(--slate);opacity:.75;text-align:center}
+.note{font-size:.88rem;color:var(--slate);margin:0;min-height:1.3em}
+footer{flex:none;padding:0 var(--gr) clamp(10px,2.4vh,28px) var(--gl);font-size:.82rem;color:var(--slate);opacity:.75;text-align:center}
 :focus-visible{outline:2px solid var(--starlight);outline-offset:3px}
 </style>
 </head>
