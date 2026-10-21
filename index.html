@@ -86,7 +86,7 @@ footer{flex:none;padding:0 var(--gr) clamp(10px,2.4vh,28px) var(--gl);font-size:
     <a class="email" href="mailto:jill@atbluesky.com">jill@atbluesky.com</a>
     <form id="wait" novalidate
           data-action="https://docs.google.com/forms/d/e/1FAIpQLSegn0_3_znTDg8VU95qyZ-X4zN9XmnNzF9Y-jry-QNCpuPLHw/formResponse"
-          data-entry-name="" data-entry-email="">
+          data-entry-name="entry.1260131103" data-entry-email="entry.418656498">
       <p class="form-title">Join the waiting list</p>
       <div class="row">
         <input id="w-name" name="name" type="text" autocomplete="name" placeholder="Full name" aria-label="Full name" required>
@@ -110,7 +110,7 @@ footer{flex:none;padding:0 var(--gr) clamp(10px,2.4vh,28px) var(--gl);font-size:
     if(!eName||!eEmail){n.textContent='The waiting list opens with the site. Until then, write to jill@atbluesky.com.';return;}
     // Post to Google Forms through a hidden iframe: no page change, no cross-origin read needed.
     var g=document.createElement('form');g.method='POST';g.action=action;g.target='gform-sink';g.hidden=true;
-    [[eName,name.value.trim()],[eEmail,email.value.trim()]].forEach(function(kv){var i=document.createElement('input');i.type='hidden';i.name=kv[0];i.value=kv[1];g.appendChild(i);});
+    [[eName,name.value.trim()],[eEmail,email.value.trim()],['emailAddress',email.value.trim()]].forEach(function(kv){var i=document.createElement('input');i.type='hidden';i.name=kv[0];i.value=kv[1];g.appendChild(i);});
     document.body.appendChild(g);g.submit();g.remove();
     n.textContent='Thank you. You’re on the list.';name.value='';email.value='';
   });
