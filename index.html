@@ -44,9 +44,10 @@ h1{font-family:var(--display);font-weight:400;font-size:clamp(1.5rem,min(4.4vw,5
 .email{font-family:var(--display);font-weight:500;color:var(--white);text-decoration:none;border-bottom:1px solid rgba(243,213,91,.6);padding-bottom:.1rem;width:max-content}
 .email:hover{border-bottom-color:var(--sun)}
 form{display:grid;gap:clamp(.35rem,.8vh,.6rem);max-width:36rem;margin-top:clamp(.5rem,2.2vh,1.6rem);padding:clamp(.8rem,1.8vh,1.3rem) clamp(.9rem,2vw,1.4rem);border:1px solid var(--line);border-radius:14px;background:rgba(4,15,63,.28)}
-label{font-family:var(--display);font-weight:500;font-size:.95rem;color:var(--pale-peri)}
-.row{display:flex;gap:.6rem;flex-wrap:nowrap}
-input{flex:1 1 8rem;min-width:0;font:inherit;font-size:1rem;color:var(--white);background:rgba(4,15,63,.4);border:1px solid var(--line);border-radius:999px;padding:clamp(.55rem,1.1vh,.8rem) 1.1rem;transition:border-color .25s}
+.form-title{font-family:var(--display);font-weight:500;font-size:.95rem;color:var(--pale-peri);margin:0}
+.row{display:flex;gap:.6rem;flex-wrap:wrap}
+@media (max-width:520px){.row input{flex-basis:100%}}
+input{flex:1 1 11rem;min-width:0;font:inherit;font-size:1rem;color:var(--white);background:rgba(4,15,63,.4);border:1px solid var(--line);border-radius:999px;padding:clamp(.55rem,1.1vh,.8rem) 1.1rem;transition:border-color .25s}
 input::placeholder{color:rgba(211,214,238,.5)}
 input:focus{outline:0;border-color:var(--starlight)}
 button{font-family:var(--display);font-weight:500;font-size:1rem;padding:clamp(.55rem,1.1vh,.8rem) 1.4rem;border-radius:999px;border:0;cursor:pointer;background:linear-gradient(135deg,#F3E7A8,#F3D55B);color:var(--ink);transition:transform .25s,box-shadow .25s}
@@ -58,7 +59,11 @@ footer{flex:none;padding:0 var(--gr) clamp(10px,2.4vh,28px) var(--gl);font-size:
   body{font-size:clamp(.86rem,1.7vh,1rem)}
   .logo{--logo-w:min(210px,48vw,21vh)}
   .col{gap:clamp(.4rem,1.3vh,1rem)}
-  form{margin-top:1.2vh;padding:.7rem .9rem}
+  main{padding-top:1.5vh;padding-bottom:1vh}
+  form{margin-top:1vh;padding:.55rem .8rem;gap:.3rem}
+  .row{gap:.45rem}
+  input,button{padding-top:.5rem;padding-bottom:.5rem}
+  .copy{gap:.35rem}
   .note{min-height:0}
 }
 </style>
@@ -79,31 +84,37 @@ footer{flex:none;padding:0 var(--gr) clamp(10px,2.4vh,28px) var(--gl);font-size:
       <p class="strap">Culture. Teams. Trust.</p>
     </div>
     <a class="email" href="mailto:jill@atbluesky.com">jill@atbluesky.com</a>
-    <form id="wait" novalidate data-endpoint="">
-      <label for="w-email">Join the waiting list</label>
+    <form id="wait" novalidate
+          data-action="https://docs.google.com/forms/d/e/1FAIpQLSegn0_3_znTDg8VU95qyZ-X4zN9XmnNzF9Y-jry-QNCpuPLHw/formResponse"
+          data-entry-name="" data-entry-email="">
+      <p class="form-title">Join the waiting list</p>
       <div class="row">
-        <input id="w-email" name="email" type="email" autocomplete="email" placeholder="Your email" required>
+        <input id="w-name" name="name" type="text" autocomplete="name" placeholder="Full name" aria-label="Full name" required>
+        <input id="w-email" name="email" type="email" autocomplete="email" placeholder="Email" aria-label="Email" required>
         <button type="submit">Join</button>
       </div>
       <p class="note" id="w-note" aria-live="polite"></p>
     </form>
+    <iframe name="gform-sink" title="" hidden></iframe>
   </div>
 </main>
 <footer>© 2026 At Blue Sky. All rights reserved.</footer>
 <script>
 (function(){
-  var f=document.getElementById('wait'),n=document.getElementById('w-note'),e=document.getElementById('w-email');
+  var f=document.getElementById('wait'),n=document.getElementById('w-note'),name=document.getElementById('w-name'),email=document.getElementById('w-email');
+  var action=f.getAttribute('data-action'),eName=f.getAttribute('data-entry-name'),eEmail=f.getAttribute('data-entry-email');
   f.addEventListener('submit',function(ev){
     ev.preventDefault();
-    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e.value)){e.focus();n.textContent='Please enter a valid email address.';return;}
-    var url=f.getAttribute('data-endpoint');
-    if(!url){n.textContent='The waiting list opens with the site. Until then, write to jill@atbluesky.com.';return;}
-    n.textContent='Sending…';
-    fetch(url,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({email:e.value})})
-      .then(function(r){if(!r.ok)throw new Error(r.status);n.textContent='Thank you. You’re on the list.';e.value='';})
-      .catch(function(){n.textContent='That did not go through. Please try again, or write to jill@atbluesky.com.';});
+    if(!name.value.trim()){name.focus();n.textContent='Please enter your name.';return;}
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)){email.focus();n.textContent='Please enter a valid email address.';return;}
+    if(!eName||!eEmail){n.textContent='The waiting list opens with the site. Until then, write to jill@atbluesky.com.';return;}
+    // Post to Google Forms through a hidden iframe: no page change, no cross-origin read needed.
+    var g=document.createElement('form');g.method='POST';g.action=action;g.target='gform-sink';g.hidden=true;
+    [[eName,name.value.trim()],[eEmail,email.value.trim()]].forEach(function(kv){var i=document.createElement('input');i.type='hidden';i.name=kv[0];i.value=kv[1];g.appendChild(i);});
+    document.body.appendChild(g);g.submit();g.remove();
+    n.textContent='Thank you. You’re on the list.';name.value='';email.value='';
   });
-  e.addEventListener('input',function(){n.textContent='';});
+  [name,email].forEach(function(i){i.addEventListener('input',function(){n.textContent='';});});
 })();
 </script>
 </body>
